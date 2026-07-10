@@ -2,19 +2,6 @@
 **/__pycache__/
 *.pyc
 
-# Dataset & intermediate files
-data/raw_videos/
-data/uploads/
-data/extracted_frames/
-data/labels/
-data/dataset/
-
-# Outputs (videos and logs)
-outputs/
-
-# Training checkpoints & runs
-runs/
-
 # IDE configs
 .idea/
 .vscode/

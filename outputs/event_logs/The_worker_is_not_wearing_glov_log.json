@@ -1,0 +1,15 @@
+{
+  "video": "The_worker_is_not_wearing_glov.mp4",
+  "timestamp_analyzed": "2026-07-07T16:32:02.131093",
+  "events": [],
+  "summary": {
+    "total_violations": 0,
+    "ppe_compliant": true,
+    "time_efficient": true,
+    "safety_zone_compliant": true,
+    "hook_zone_compliant": true,
+    "attachment_duration_seconds": 0.0,
+    "min_distance_cm_estimate": 0.0,
+    "max_distance_cm_estimate": 0.0
+  }
+}

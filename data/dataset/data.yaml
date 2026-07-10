@@ -1,0 +1,9 @@
+names:
+  0: person
+  1: crane_hook
+  2: load_panel
+  3: rubber_glove
+nc: 4
+path: C:\Users\abinav\OneDrive\Desktop\Motivation app\data\dataset
+train: train\images
+val: val\images

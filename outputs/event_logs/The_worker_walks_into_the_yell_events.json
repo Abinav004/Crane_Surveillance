@@ -1,0 +1,11 @@
+{
+    "video_name": "The_worker_walks_into_the_yell.mp4",
+    "zone_name": "Crane Loading Zone A",
+    "summary": {
+        "total_intrusions": 0,
+        "total_intrusion_time_sec": 0.0,
+        "unique_people_count": 0,
+        "processed_timestamp": "2026-07-08T08:57:48Z"
+    },
+    "events": []
+}
