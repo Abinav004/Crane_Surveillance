@@ -1,0 +1,25 @@
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Dataset & intermediate files
+data/raw_videos/
+data/uploads/
+data/extracted_frames/
+data/labels/
+data/dataset/
+
+# Outputs (videos and logs)
+outputs/
+
+# Training checkpoints & runs
+runs/
+
+# IDE configs
+.idea/
+.vscode/
+
+# OS metadata
+Thumbs.db
+Desktop.ini
+.DS_Store

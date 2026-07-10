@@ -1,0 +1,23 @@
+{
+    "zone_name": "Crane Loading Zone A",
+    "video_name": "scenario_violations.mp4",
+    "coordinates": [
+        [
+            639.0,
+            269.0
+        ],
+        [
+            763.0,
+            269.0
+        ],
+        [
+            763.0,
+            413.0
+        ],
+        [
+            639.0,
+            413.0
+        ]
+    ],
+    "created_timestamp": "2026-07-08T11:26:18.206463"
+}

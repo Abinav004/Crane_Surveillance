@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danger Zone Calibration & Detection</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/calibration.css?v=2.0">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <span class="logo-icon">⚠️</span>
+                <div>
+                    <h1>IntrusionGuard</h1>
+                    <p class="subtitle">Danger-Zone Detection</p>
+                </div>
+            </div>
+
+            <!-- Section 1: Video Selection & Upload -->
+            <section class="panel upload-panel">
+                <h2>1. Select Video</h2>
+                <div class="form-group">
+                    <label for="video-select">Choose Video:</label>
+                    <select id="video-select" class="form-control">
+                        <option value="">-- Select video --</option>
+                    </select>
+                </div>
+
+            </section>
+
+            <!-- Section 2: Danger Zone Configuration -->
+            <section class="panel config-panel disabled" id="zone-config-panel">
+                <h2>2. Danger Zone Setup</h2>
+                <div class="form-group">
+                    <label for="zone-name">Danger Zone Name:</label>
+                    <input type="text" id="zone-name" class="form-control" placeholder="e.g. Loading Dock A" value="Crane Loading Zone A">
+                </div>
+                <div class="form-group margin-setting">
+                    <label for="margin-offset">Safety Margin Offset (pixels):</label>
+                    <div class="margin-slider-container">
+                        <input type="range" id="margin-offset" min="10" max="150" value="50" class="slider">
+                        <span id="margin-value">50px (~30cm)</span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="btn-suggest" class="btn btn-secondary">Auto-Detect Floor Lines</button>
+                    <button id="btn-save" class="btn btn-primary">Save Calibration</button>
+                </div>
+                <div id="save-status" class="status-msg hide"></div>
+            </section>
+
+            <!-- Section 3: Run YOLO Processing -->
+            <section class="panel run-panel disabled" id="run-panel">
+                <h2>3. Pipeline Control</h2>
+                <button id="btn-process" class="btn btn-accent btn-large">🚀 Process Video (YOLOv8)</button>
+                
+                <div class="progress-container hide" id="progress-container">
+                    <div class="progress-header">
+                        <span id="progress-label">Processing...</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                </div>
+                
+                <div id="process-status" class="status-msg hide"></div>
+            </section>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <header class="workspace-header">
+                <div class="header-info">
+                    <h2 id="current-video-title">No Video Loaded</h2>
+                    <p id="current-video-meta">Please upload or select a video to begin calibration.</p>
+                </div>
+                <div class="header-badges">
+                    <span class="badge badge-inactive" id="calibration-badge">Uncalibrated</span>
+                    <span class="badge badge-inactive" id="processing-badge">Not Processed</span>
+                </div>
+            </header>
+
+            <div class="canvas-viewport" id="canvas-viewport">
+                <!-- Canvas Editor container -->
+                <div class="editor-container" id="editor-container">
+                    <canvas id="calibration-canvas"></canvas>
+                    <div class="canvas-instructions" id="canvas-instructions">
+                        <div class="instructions-content">
+                            <span class="large-icon">🎥</span>
+                            <h3>Upload a video to start</h3>
+                            <p>Upload a factory video to extract the baseline frame and calibrate the danger zone bounding box.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Results / Outputs Section -->
+            <footer class="results-panel hide" id="results-panel">
+                <div class="results-header">
+                    <h3>Processing Complete</h3>
+                    <div class="results-actions">
+                        <a id="btn-view-video" href="#" target="_blank" class="btn btn-secondary btn-sm">▶️ View Annotated Video</a>
+                        <a id="btn-view-log" href="#" target="_blank" class="btn btn-secondary btn-sm">📋 View Event Log</a>
+                    </div>
+                </div>
+                <div class="results-summary">
+                    <div class="summary-card">
+                        <span class="summary-val" id="sum-intrusions">-</span>
+                        <span class="summary-lbl">Intrusions Logged</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-val" id="sum-time">-</span>
+                        <span class="summary-lbl">Total Alarm Time</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-val" id="sum-people">-</span>
+                        <span class="summary-lbl">Unique Track IDs</span>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    
+    <script src="/frontend/calibration.js?v=2.0"></script>
+</body>
+</html>
